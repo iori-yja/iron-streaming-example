@@ -1,0 +1,7 @@
+[package]
+name = "iron_stream"
+version = "0.1.0"
+authors = ["Iori YONEJI <fivo.11235813@gmail.com>"]
+
+[dependencies]
+iron = "0.6"
