@@ -5,4 +5,6 @@ By limiting `iron.threads` as 1, the example could emphasize the current problem
 
 The pic below is a screenshot of an experiment that runs this server and parallelly requests to it.
 
+The `curl` command is stucking because the thread for request handling is occupied by request which can be seen above window.
+
 ![Screenshot of an experiment; two parallel request](streaming_test.png)
