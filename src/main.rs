@@ -3,9 +3,9 @@ extern crate iron;
 use iron::response;
 use iron::status;
 use std::fs;
-use std::io::{BufReader, Read};
+use std::io::BufReader;
 
-fn stream(req: &mut iron::Request) -> iron::IronResult<iron::Response> {
+fn stream(_: &mut iron::Request) -> iron::IronResult<iron::Response> {
     let bufreader = BufReader::new(fs::File::open("/dev/urandom").unwrap());
     Ok(iron::Response::with((status::Ok, response::BodyReader(bufreader))))
 }
