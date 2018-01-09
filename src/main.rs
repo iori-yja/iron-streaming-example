@@ -12,6 +12,5 @@ fn stream(_: &mut iron::Request) -> iron::IronResult<iron::Response> {
 
 fn main() {
     let mut iron = iron::Iron::new(stream);
-    iron.threads = 1;
-    iron.http("localhost:3000").unwrap();
+    iron.http("localhost:3000");
 }
