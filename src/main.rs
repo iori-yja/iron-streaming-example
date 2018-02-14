@@ -1,16 +1,16 @@
-extern crate iron;
+extern crate zhelezo;
 
-use iron::response;
-use iron::status;
+use zhelezo::response;
+use zhelezo::status;
 use std::fs;
 use std::io::BufReader;
 
-fn stream(_: &mut iron::Request) -> iron::IronResult<iron::Response> {
+fn stream(_: &mut zhelezo::Request) -> zhelezo::IronResult<zhelezo::Response> {
     let bufreader = BufReader::new(fs::File::open("/dev/urandom").unwrap());
-    Ok(iron::Response::with((status::Ok, response::BodyReader(bufreader))))
+    Ok(zhelezo::Response::with((status::Ok, response::BodyReader(bufreader))))
 }
 
 fn main() {
-    let mut iron = iron::Iron::new(stream);
-    iron.http("localhost:3000");
+    let zhelezo = zhelezo::Iron::new(stream);
+    zhelezo.http("localhost:3000");
 }
